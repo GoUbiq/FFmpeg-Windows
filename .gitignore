@@ -1,0 +1,5 @@
+bin/
+Release/
+Debug/
+*.suo
+live.sdf
