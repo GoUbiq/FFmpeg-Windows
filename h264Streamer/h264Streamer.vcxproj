@@ -20,7 +20,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -50,6 +50,7 @@
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <IntDir>$(Configuration)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Boost\include\boost-1_55;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -83,6 +84,7 @@
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir)/BasicUsageEnvironment;$(SolutionDir)/BasicUsageEnvironment/include;$(SolutionDir)/groupsock;$(SolutionDir)/groupsock/include;$(SolutionDir)/liveMedia;$(SolutionDir)/liveMedia/include;$(SolutionDir)/UsageEnvironment;$(SolutionDir)/UsageEnvironment/include;$(SolutionDir)/h264Streamer;$(SolutionDir)/3rdparty/ffmpeg/include;$(SolutionDir)/3rdparty/boost/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -90,6 +92,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>$(SolutionDir)\lib;$(SolutionDir)/3rdparty/boost/lib;$(SolutionDir)/3rdparty/ffmpeg/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/SAFESEH:NO avcodec.lib  avdevice.lib  avfilter.lib  avformat.lib avutil.lib postproc.lib  swresample.lib  swscale.lib %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>BasicUsageEnvironment.lib;groupsock.lib;liveMedia.lib;UsageEnvironment.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
